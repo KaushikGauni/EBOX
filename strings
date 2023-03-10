@@ -1,0 +1,260 @@
+//1
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String ans = s.toLowerCase();
+        boolean flag = true;
+        char c1 = ans.charAt(0),c2 = ans.charAt(1);
+        if(c1==c2){
+            System.out.println("No");
+            return;
+        }
+        for(int i=0;i<s.length();i=i+2){
+            if(ans.charAt(i)!=c1){
+                flag = false;
+            }
+        }
+        for(int i=1;i<s.length();i=i+2){
+            if(ans.charAt(i)!=c2){
+                flag = false;
+            }
+        }
+        if(flag){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+        }
+    }
+}
+
+//2
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int count1 = 0, count2 = 0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='1'){
+                count2++;
+            }
+            else{
+                count1++;
+            }
+        }
+        if(count1==1 || count2==1){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+        }
+    }
+}
+
+//3
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String x = sc.nextLine();
+        String y = sc.nextLine();
+        boolean flag = true;
+        for(int i=0;i<x.length();i++){
+            if(x.charAt(i)=='?' || y.charAt(i)=='?'){
+                continue;
+            }
+            if(x.charAt(i)!=y.charAt(i)){
+                flag = false;
+            }
+        }
+        if(flag){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+        }
+    }
+}
+
+//4
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s1 = sc.nextLine();
+        String s2 = sc.nextLine();
+        int max=0,min=0;
+        for(int i=0;i<s1.length();i++){
+            if(s1.charAt(i)=='?' && s2.charAt(i)=='?'){
+                max++;
+            }
+            else if(s1.charAt(i)=='?' || s2.charAt(i)=='?'){
+                max++;
+            }
+            else if(s1.charAt(i)!=s2.charAt(i)){
+                max++;
+                min++;
+            }
+        }
+        System.out.printf("%d %d",min,max);
+    }
+}
+
+//5
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int acount = 0, bcount = 0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='a'){
+                acount++;
+            }
+            else{
+                bcount++;
+            }
+        }
+        System.out.println(acount<bcount?acount:bcount);
+    }
+}
+
+//6
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int[] freq = new int[26];
+        int n = s.length();
+        for(int i=0;i<n;i++){
+            freq[s.charAt(i)-'a']++;
+        }
+        int sum = 0;
+        for(int i=0;i<26;i++){
+            sum += freq[i];
+        }
+        for(int i=0;i<26;i++){
+            if(freq[i]==sum-freq[i]){
+                System.out.println("Yes");
+                return;
+            }
+        }
+        System.out.println("No");
+    }
+}
+
+//7
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        String[] words = new String[n];
+        Set<String> phrases = new HashSet<>();
+        for (int i = 0; i < n; i++) {
+            words[i] = sc.next();
+        }
+        for (int i = 0; i < k; i++) {
+            int l = sc.nextInt();
+            for (int j = 0; j < l; j++) {
+                phrases.add(sc.next());
+            }
+        }
+        for(String e : words){
+            if(phrases.contains(e)){
+                System.out.print("Yes ");
+            }
+            else{
+                System.out.print("No ");
+            }
+        }
+    }
+}
+
+//8
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        int count = 0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='1'){
+                count++;
+            }
+        }
+        if(count>=10){
+            System.out.println("Win");
+        }
+        else{
+            System.out.println("Lose");
+        }
+    }
+}
+
+//9
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String x = sc.nextLine();
+        String y = sc.nextLine();
+        StringBuilder s = new StringBuilder();
+        int n = x.length();
+        for(int i=0;i<n;i++){
+            if(x.charAt(i)=='W' && x.charAt(i)==y.charAt(i)){
+                s.append("B");
+            }
+            else if(x.charAt(i)=='B' && x.charAt(i)==y.charAt(i)){
+                s.append("W");
+            }
+            else{
+                s.append("B");
+            }
+        }
+        String z = s.toString();
+        System.out.println(z);
+    }
+}
+
+//10
+
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String[] s = new String[n];
+        for(int i=0;i<n;i++){
+            s[i] = sc.next();
+        }
+        if(s[n-1].equals("cookie")){
+            System.out.println("No");
+            return;
+        }
+        else{
+            for(int i=0;i<n-1;i++){
+                if(s[i].equals("cookie") && (!s[i+1].equals("juice"))){
+                    System.out.println("No");
+                    return;
+                }
+            }
+        }
+        System.out.println("Yes");
+    }
+}
