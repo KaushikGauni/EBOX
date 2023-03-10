@@ -1,0 +1,372 @@
+//1
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int sum = NumberType.findType (x);
+        if(sum==0){
+            System.out.printf("%d is a perfect number",x);
+        }
+        else if(sum==1){
+            System.out.printf("%d is a deficient number",x);
+        }
+        else{
+            System.out.printf("%d is an abundant number",x);
+        }
+        //type your code here
+    }
+}
+
+import java.util.*;
+public class NumberType{
+    public static int findType (int x)
+    {
+    //type your code here
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        for(int i=1;i<=x/2;i++){
+            if(x%i==0){
+                al.add(i);
+            }
+        }
+        int sum = 0;
+        for(int i=0;i<al.size();i++){
+            sum += al.get(i);
+        }
+
+        if(sum==x){
+            return 0;
+        }
+        else if(sum<x){
+            return 1;
+        }
+        return -1;
+}
+}
+
+
+//2
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs
+        Scanner sc  = new Scanner(System.in);
+        int x = sc.nextInt();
+        int result = NiceNumber.findType (x);
+        if(result==1){
+            System.out.println("Nice");
+        }
+        else{
+            System.out.println("Not Nice");
+        }
+        //type your code here
+    }
+}
+
+public class NiceNumber{
+    public static int findType (int x)
+    {
+    //type your code here
+    int count = 0;
+    for(int i=1;i<=x;i++){
+        if(x%i==0){
+            count++;
+        }
+    }
+    if(count==4){
+        return 1;
+    }
+    return 0;
+}
+}
+
+
+//3
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt(), m = sc.nextInt();
+        int result = ModInverse.findValue(x,m);
+        System.out.println(result);
+        //type your code here
+    }
+}
+
+public class ModInverse{
+    public static int findValue (int x, int m)
+    {
+    //type your code here
+    for(int i=1;i<=x*m;i++){
+        if(x*i%m==1){
+            return i;
+        }
+    }
+    return -1;
+}
+}
+
+
+//4
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int den = sc.nextInt();
+        Fraction.printValue (num,den);
+    }
+}
+
+public class Fraction{
+    public static void printValue (int num,int den)
+    {
+    //type your code here
+    int gcd = gcd(num,den);
+    num /= gcd;
+    den /= gcd;
+    int q = num/den;
+    int r = num%den;
+    if(r==0){
+        System.out.println(q);
+    }
+    else if(q==0){
+        System.out.println(r+"/"+den);
+    }
+    else{
+        System.out.printf("%d %d/%d",q,r,den);
+    }
+}
+public static int gcd(int a, int b){
+    if(b==0){
+        return a;
+    }
+    else{
+        return gcd(b,a%b);
+    }
+}
+}
+
+//5
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs
+        Scanner sc= new Scanner(System.in);
+        int day = sc.nextInt();
+        int night = sc.nextInt();
+        int weekend = sc.nextInt();
+        BestMobilePlan.printPlanDetails(day,night,weekend);
+    }
+}
+
+public class BestMobilePlan{
+    public static void printPlanDetails (int day,int night,int weekend)
+    {
+    //type your code here
+    int[] a = {day,night,weekend};
+    int[] b = {day,night,weekend};
+    if(a[0]<100){
+        a[0]=0;
+    }
+    else{
+        a[0] = (a[0]-100) * 25;
+    }
+    if(b[0]<250){
+        b[0]=0;
+    }
+    else{
+        b[0] = (b[0]-250)*45;
+    }
+    a[1] = 15*a[1];
+    b[1] = 35*b[1];
+    a[2] = 20*a[2];
+    b[2] = 25*b[2];
+    double s1=0,s2=0;
+    for(int i=0;i<3;i++){
+        s1 += a[i];
+        s2 += b[i];
+    }
+    s1 = s1/100;
+    s2 = s2/100;
+    System.out.printf("Plan A costs %.2f\n",s1);
+    System.out.printf("Plan B costs %.2f\n",s2);
+    if(s1==s2){
+        System.out.println("Plan A and B are the same price");
+    }
+    else if(s1<s2){
+        System.out.println("Plan A is cheapest");
+    }
+    else{
+        System.out.println("Plan B is cheapest");
+    }
+}
+}
+
+
+//6
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int result = Fibonacci.fiboLastDigit(n);
+        System.out.println(result);
+	//tpe your code here
+    }
+}
+
+public class Fibonacci {
+    public static int fiboLastDigit(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int previous = 0, current = 1;
+        for (int i = 2; i <= n; i++) {
+            int next = (previous + current) % 10;
+            previous = current;
+            current = next;
+        }
+        return current;
+    }
+}
+
+
+//7
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs 
+        Scanner sc = new Scanner(System.in);
+        int n= sc.nextInt();
+        int result = AdditionChallenge.findSum(n);
+        //type your code here
+        System.out.println(result);
+    }
+}
+
+public class AdditionChallenge{
+    public static int findSum(int n)
+    {
+    //type your code here
+    int result=0;
+    while(n!=0){
+        result += Math.pow(2,n);
+        n--;
+    }
+    return result+1;
+}
+}
+
+//8
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs 
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int result = Dots.find(n);
+        if(result==1){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+        }
+        //type your code here
+    }
+}
+
+public class Dots{
+    public static int find(int n)
+    {
+    //type your code here
+    int i = 2,j=1;
+    while(j<n){
+        j += i;
+        i++;
+    }
+    if(j==n){
+        return 1;
+    }
+    return 0;
+}
+}
+
+
+//9
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs 
+        Scanner sc = new Scanner(System.in);
+        int a = sc.nextInt(), b= sc.nextInt();
+        int result = Cards.findValue(a,b);
+        System.out.println(result);
+        //type your code here
+    }
+}
+
+public class Cards{
+    public static int findValue(int a,int b)
+    {
+    //type your code here
+    if(b==0){
+        return a;
+    }
+    else{
+        return findValue(b,a%b);
+    }
+}
+}
+
+//10
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        //get inputs 
+        Scanner sc = new Scanner(System.in);
+        String a = sc.nextLine(), b = sc.nextLine();
+        int result= EvaluateCodes.findValue(a,b);
+        if(result==1){
+            System.out.println("Yes");
+        }
+        else{
+            System.out.println("No");
+        }
+        //type your code here
+    }
+}
+public class EvaluateCodes{
+    public static int findValue(String a, String b)
+    {
+    //type your code here
+    if(a.equals(b)){
+        return 1;
+    }
+    if(b.length()>a.length()){
+        return 0;
+    }
+    String str = a.substring(a.length()-b.length());
+    for(int i=b.length()-1;i>=0;i--){
+        if(str.charAt(i)!=b.charAt(i)){
+            return 0;
+        }
+    }
+    return 1;
+}
+}
+
