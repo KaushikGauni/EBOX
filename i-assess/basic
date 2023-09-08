@@ -1,1 +1,284 @@
+//1
 
+class Main{
+      public static void main(String args[]){
+                  System.out.println("Welcome to Amphi Event Management System");
+      }
+}
+
+//2
+import java.util.*;
+class Main{
+       public static void main(String args[]){
+               Scanner s = new Scanner(System.in);
+               String n;
+               System.out.println("Enter your name ");
+              n=s.next();
+              System.out.println("Hello "+n  + " !  Welcome to Amphi Event Management System");
+       }
+}
+
+//3
+import java.util.*;
+class Main{
+       public static void main(String args[]){
+               Scanner s = new Scanner(System.in);
+               int n;
+               System.out.println("Enter the number of events hosted in Codissia");
+              n=s.nextInt();
+              System.out.println("Number of events hosted in Codissia is "+n);
+       }
+}
+
+//4
+
+import java.util.*;
+import java.text.*;
+class Main{
+       public static void main(String args[]){
+               Scanner s = new Scanner(System.in);
+               String fest;
+               String t;
+              double n1;    
+               int n;
+              char p;
+               System.out.println("Enter the name of the event");
+               fest=s.nextLine();
+                System.out.println("Enter the type of the event");
+               t=s.nextLine();
+                System.out.println("Enter the number of people expected");
+               n=s.nextInt();
+               s.nextLine();
+               System.out.println("Is it a paid entry?(Type Y or N)");
+               p=s.nextLine().charAt(0);
+              System.out.println("Enter the projected expenses (in lakhs) for this event");
+              n1=s.nextDouble();
+              DecimalFormat df = new DecimalFormat(".#");
+                System.out.println("Event Name : "+fest);
+                System.out.println("Event Type : "+t);
+                System.out.println("Expected Count :"+n);
+                 System.out.println("Paid Entry :"+p);
+                System.out.println("Projected Expense : "+df.format(n1)+"L");
+       }
+}
+
+//5
+
+import java.util.*;
+import java.text.*;
+class Main{
+       public static void main(String args[]){
+               Scanner s = new Scanner(System.in);
+               int a,b,c,d;
+               System.out.println("Enter branding expenses ");
+               a=s.nextInt();
+               System.out.println("Enter travel expenses");
+               b=s.nextInt();
+               System.out.println("Enter food expenses");
+               c=s.nextInt();
+               System.out.println("Enter logistics expenses");
+               d=s.nextInt();
+               NumberFormat df = new DecimalFormat("#0.00");
+               double sum = a+b+c+d;
+              
+               System.out.println("Total expenses  : Rs."+df.format(sum));
+                double x =((a/sum)*100);
+                double x1 =((b/sum)*100);
+                double x2=((c/sum)*100);
+                double x3 =((d/sum)*100);
+               System.out.println("Branding expenses percentage :"+df.format(x)+"%");
+               System.out.println("Travel expenses percentage :"+df.format(x1)+"%");
+               System.out.println("Food expenses percentage :"+df.format(x2)+"%");
+               System.out.println("Logistics expenses percentage :"+df.format(x3)+"%");
+       }
+}
+
+//6
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+          Scanner s = new Scanner(System.in);
+          int total;
+          System.out.println("Enter the total number of people ");
+          total=s.nextInt();
+          int x=2*(total/7);
+          System.out.println("Number of attendees on day 1 :"+x);
+           System.out.println("Number of attendees on day 2 :"+2*x);
+            System.out.println("Number of attendees on day 3 :"+x/2);
+    }
+}
+
+
+//7
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+          Scanner s = new Scanner(System.in);
+          int x,y;
+        System.out.println("Enter the value of X");
+        x=s.nextInt();
+         System.out.println("Enter the value of Y");
+        y=s.nextInt();
+        int m = (y-(5*x))/13;
+        System.out.println("Number of children tickets sold : "+m);
+           System.out.println("Number of adult tickets sold : "+(m+x));
+              System.out.println("Number of senior tickets sold : "+m*2);
+    }
+}
+
+
+//8
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+          Scanner s = new Scanner(System.in);
+          int side,n;
+          System.out.println("Enter the side in cm of a square tile");
+          side=s.nextInt();
+         System.out.println("Enter the number of square tiles available");
+         n=s.nextInt();
+       int maxSide = (int) Math.floor(Math.sqrt(n));
+       int numTilesUsed = maxSide * maxSide;
+       int area = numTilesUsed * side * side;
+         System.out.println("Area of the largest possible square is "+area+"sqcm");
+    }
+}
+
+//9
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+          Scanner s = new Scanner(System.in);
+            double sal ;
+        //    int s2=(int)((sal)-800)/130;
+          System.out.println("Enter the total salary paid ");
+          sal = s.nextDouble();
+           int s2=(int)((sal)-800)/130;
+          System.out.println("Number of weekday hours is "+(s2+10));
+             System.out.println("Number of weekend hours is "+s2);
+    }
+}
+
+//10
+import java.util.*;
+import java.text.*;
+class Main{
+    public static void main(String args[]){
+          Scanner s = new Scanner(System.in);
+          int s1,s2,s3,sum;
+          float r1,r2,r3;
+          float rs1,rs2,rs3,avg,rsum;
+          System.out.println("Enter the number of people who watched show 1");
+          s1=s.nextInt();
+          System.out.println("Enter the average rating for show 1");
+          r1=s.nextFloat();
+           System.out.println("Enter the number of people who watched show 2");
+          s2=s.nextInt();
+          System.out.println("Enter the average rating for show 2");
+          r2=s.nextFloat();
+           System.out.println("Enter the number of people who watched show 3");
+          s3=s.nextInt();
+          System.out.println("Enter the average rating for show 3");
+          r3=s.nextFloat();
+          rs1=s1*r1;
+            rs2=s2*r2;
+              rs3=s3*r3;
+              sum=s1+s2+s3;
+              rsum=rs1+rs2+rs3;
+           avg=rsum/sum;
+           NumberFormat df = new DecimalFormat("#0.00");
+          System.out.println("The overall average rating for the show is "+df.format(avg));
+             
+          }
+          }
+
+//11
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        int m,n;
+        int min;
+        System.out.println("Enter m");
+        m=s.nextInt();
+        System.out.println("Enter n");
+        n=s.nextInt();
+      min=m*n-1;
+      System.out.println("Minimum number of times is "+min);
+    }
+}
+
+
+//12
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int maxPackSize = 0;
+        int maxLeftover = 0;
+
+        for (int i = 1; i <= n; i++) {
+            int leftover = n % i;
+            if (leftover >= maxLeftover) {
+                maxLeftover = leftover;
+                maxPackSize = i;
+            }
+        }
+
+        System.out.println(maxPackSize);
+    }
+}
+
+//13
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        int n =s.nextInt();
+        int n1 = n/100;
+        n=n%100;
+        int n2 = n/50;
+        n=n%50;
+        int n3 = n/10;
+        n=n%10;
+        int n4 = n/5;
+        n=n%5;
+        int n5=n/2;
+        n=n%2;
+        int n6 = n/1;
+        n=n%1;
+        System.out.println(n1+n2+n3+n4+n5+n6);
+        
+    }
+}
+
+
+//14
+import java.util.*;
+class Main{
+    public static void main(String args[]){
+          Scanner s = new Scanner(System.in);
+          int x,y;
+          System.out.println("Enter the side of the square hall");
+          x=s.nextInt();
+            System.out.println("Enter the side of the square table placed for display");
+            y=s.nextInt();
+            int area=x*x;
+            int area1=y*y;
+                System.out.println("Area to be decorated is "+(area-area1));}}
+
+
+//15
+import java.util.*;
+class Main{
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        int x,total;
+        System.out.println("Enter x");
+        x=s.nextInt();
+        total=x*3;
+        System.out.println(total+" people were there in total");
+    }
+}
